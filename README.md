@@ -74,6 +74,7 @@ Smart-Traffic-AI/ <br>
 └── README.md <br>
 
 **Dataset** <br>
+
 The dataset follows YOLO format: <br>
 dataset/ <br>
 ├── images/train <br>
