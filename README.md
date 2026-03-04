@@ -21,6 +21,7 @@ The system processes video streams in real time and exposes traffic analytics vi
 - Built thread-safe analytics state management <br>
 - Structured environment-based configuration <br>
 - Designed project for scalability and production deployment <br><br>
+
 **System Architecture**
 
  Video Stream
