@@ -100,21 +100,27 @@ Training includes:
 **Clone the repository**
 
 **bash**
-git clone https://github.com/YOUR_USERNAME/Smart-Traffic-AI.git
+git clone https://github.com/Aman-mishra-29/Smart-Traffic-AI.git
 cd Smart-Traffic-AI <br><br>
+
 **Create Virtual Environment** <br>
 python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate <br><br>
+source venv/bin/activate   # Windows: venv\Scripts\activate <br>
+
 **Install Dependencies**<br>
 pip install -r requirements.txt <br>
-Update paths if necessary. <br><br>
+Update paths if necessary. <br>
+
 **Create .env File** <br>
 Copy from example: <br>
-cp .env.example .env <br><br>
+cp .env.example .env <br>
+
 **Run Server** <br>
-uvicorn app.main:app --reload <br><br>
+uvicorn app.main:app --reload <br>
+
 **Open Swagger documentation:** <br>
-http://127.0.0.1:8000/docs <br><br>
+http://127.0.0.1:8000/docs <br>
+
 **Key Features Implemented** <br>
 
 - Real-time vehicle detection <br>
@@ -123,7 +129,8 @@ http://127.0.0.1:8000/docs <br><br>
 - Overspeed violation logging <br>
 - Thread-safe background processing <br>
 - OpenAPI documentation <br>
-- Environment-based configuration <br><br>
+- Environment-based configuration <br>
+
 **Configuration** <br>
 Environment variables are managed via .env. <br>
 Example configuration: <br>
@@ -131,7 +138,8 @@ MODEL_PATH=models/best.pt <br>
 VIDEO_PATH=sample_video.mp4 <br>
 PIXELS_PER_METER=8 <br>
 FPS=30 <br>
-SPEED_LIMIT=60 <br><br>
+SPEED_LIMIT=60 <br>
+
 **Scalability Considerations** <br>
 
 This project is structured to support: <br>
@@ -141,7 +149,8 @@ This project is structured to support: <br>
 - Redis caching <br>
 - JWT authentication <br>
 - Docker containerization <br>
-- Cloud deployment (AWS / Azure / GCP) <br><br>
+- Cloud deployment (AWS / Azure / GCP) <br>
+
 **Future Improvements** <br>
 
 - Persistent database storage <br>
