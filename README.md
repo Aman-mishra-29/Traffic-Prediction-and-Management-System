@@ -1,93 +1,154 @@
-# Traffic Prediction and Management System <br>
-An AI-powered Smart Traffic Monitoring & Management System that integrates Machine Learning, Computer Vision, Real-Time Routing, and Traffic Signal Optimization to reduce congestion and automate violation management. <br><br>
+#  Smart Traffic AI – Real-Time Vehicle Speed & Violation Detection System <br>
+A real-time traffic analytics system built using **YOLOv8**, **ByteTrack**, and **FastAPI** for vehicle detection, tracking, and overspeed violation monitoring.
+
+This project demonstrates how to move from **model training** to a **production-style ML backend system**. <br><br>
 **Project Overview** <br>
-This system provides: <br>
-⋗ Live Traffic Density Prediction <br>
-⋗ Traffic Signal Optimization (Dynamic Timing) <br>
-⋗ Automatic Number Plate Recognition (ANPR) <br>
-⋗ Instant Online Challan Generation <br>
-⋗ Google Maps Re-routing Based on Traffic <br>
-⋗ Real-Time Monitoring Dashboard <br>
-The goal is to build an intelligent traffic ecosystem that reduces congestion, improves urban mobility, and automates law enforcement. <br><br>
-**System Architecture** <br><br>
-**1️. Traffic Prediction Module** <br>
-⋗ ML model predicts traffic density based on: <br>
-• Vehicle count <br>
-• Time of day <br>
-• Historical congestion patterns <br>
-⋗ Used to optimize signal timing dynamically. <br><br>
-**2️. Signal Optimization Engine** <br>
-⋗ Adjusts signal duration based on: <br>
-• Predicted traffic density <br>
-• Real-time vehicle count <br>
-⋗ Reduces waiting time and congestion. <br><br>
-**3️. Number Plate Detection (Violation System)** <br>
-⋗ Uses Computer Vision + OCR <br>
-⋗ Captures vehicle image from webcam/CCTV <br>
-⋗ Extracts number plate <br>
-⋗ Automatically generates challan <br>
-⋗ Updates violation log on dashboard <br><br>
-**4️. Google Maps Integration** <br>
-⋗ Shows: <br>
-• Current user location <br>
-• Destination routing <br>
-• Live traffic-aware route <br>
-⋗ Automatically re-routes every 60 seconds. <br><br>
-**Tech Stack** <br>
-⋗ Frontend <br>
-• HTML5 <br>
-• CSS3 <br>
-• JavaScript <br>
-• Google Maps JavaScript API <br>
-• WebRTC (Camera Access) <br><br>
-⋗ Backend <br>
-• Python <br>
-• Flask (REST API) <br>
-• Flask-CORS <br><br>
-⋗ Machine Learning <br>
-• Scikit-learn (Traffic Prediction Model) <br>
-• NumPy <br>
-• Pandas <br>
-• Joblib / Pickle (Model Serialization) <br><br>
-⋗ Computer Vision <br>
-• OpenCV <br>
-• EasyOCR / Tesseract OCR <br>
-• PIL <br><br>
-⋗ APIs & Services <br>
-• Google Maps Directions API <br>
-• Google Maps JavaScript API <br>
-• Geolocation API <br><br>
-**Working Flow** <br><br>
-**1.** **Traffic Prediction** <br>
-⋗ User inputs vehicle density. <br>
-⋗ Frontend sends request to Flask API. <br>
-⋗ Backend loads trained ML model. <br>
-⋗ Model predicts congestion level. <br>
-⋗ UI updates signal timing suggestion. <br><br>
-**2.** **Violation Detection** <br>
-⋗ Camera captures vehicle image. <br>
-⋗ Image sent to backend. <br>
-⋗ OCR extracts number plate. <br>
-⋗ Challan generated automatically. <br>
-⋗ Violation log updated on UI. <br><br>
-**3.** **Re-routing** <br>
-⋗ System fetches user’s current GPS location. <br>
-⋗ Google Directions API calculates optimal route. <br>
-⋗ Traffic model (pessimistic mode) used. <br>
-⋗ Route auto-refreshes every 60 seconds. <br><br>
-**Key Highlights** <br>
-⋗ End-to-End ML Deployment <br>
-⋗ Real-Time API Integration <br>
-⋗ Computer Vision Implementation <br>
-⋗ Traffic-Aware Route Optimization <br>
-⋗ Full-Stack ML Project (Frontend + Backend + Model) <br>
-⋗ Real-Time Data Handling <br><br>
-**Future Enhancements** <br>
-⋗ Integration with Government Vehicle Database <br>
-⋗ SMS/Email Challan Notification <br>
-⋗ Deployment on AWS / Azure <br>
-⋗ Real-time IoT Sensor Integration <br>
-⋗ Deep Learning-based Vehicle Detection <br><br>
+Smart Traffic AI integrates:
+
+- Deep learning-based object detection (YOLOv8) <br>
+- Multi-object tracking (ByteTrack) <br>
+- Speed estimation using pixel-to-meter conversion <br>
+- Overspeed violation detection <br>
+- Thread-safe background processing <br>
+- REST API exposure with Swagger documentation <br>
+
+The system processes video streams in real time and exposes traffic analytics via API endpoints. <br><br>
+**ML Engineering Highlights**
+
+- Integrated YOLOv8 inference pipeline with backend API service <br>
+- Designed modular architecture separating detection, tracking, and analytics layers <br>
+- Implemented real-time speed estimation logic <br>
+- Built thread-safe analytics state management <br>
+- Structured environment-based configuration <br>
+- Designed project for scalability and production deployment <br><br>
+**System Architecture**
+
+ Video Stream
+↓
+YOLOv8 Object Detection
+↓
+ByteTrack Multi-Object Tracking
+↓
+Speed Estimation (Pixel-to-Meter Conversion)
+↓
+Overspeed Violation Detection
+↓
+Thread-Safe Analytics Engine
+↓
+FastAPI REST API <br><br>
+**Tech Stack**
+
+- Python 3.10+ <br>
+- YOLOv8 (Ultralytics) <br>
+- ByteTrack (Supervision) <br>
+- FastAPI <br>
+- OpenCV <br>
+- NumPy <br>
+- Pydantic <br>
+- Uvicorn <br><br>
+**Project Structure** <br>
+Smart-Traffic-AI/ <br>
+│ <br>
+├── app/ <br>
+│ ├── api/ <br>
+│ ├── models/ <br>
+│ ├── services/ <br>
+│ ├── config.py <br>
+│ ├── main.py <br>
+│ <br>
+├── model/ <br>
+│ <br>
+├── notebooks/ <br>
+│ └── Traffic_prediction.ipynb <br>
+│ <br>
+├── dataset/ <br>
+│ ├── images/ <br>
+│ ├── labels/ <br>
+│ └── data.yaml <br>
+│ <br>
+├── requirements.txt <br>
+├── .env.example <br>
+├── .gitignore <br>
+└── README.md <br><br>
+**Dataset**
+
+The dataset follows YOLO format: <br>
+dataset/ <br>
+├── images/train <br>
+├── images/val <br>
+├── labels/train <br>
+├── labels/val <br>
+└── data.yaml <br>
+
+Full dataset is not included due to size limitations. <br><br>
+
+**Model Training**
+
+Model training notebook: <br>
+notebooks/Traffic_prediction.ipynb <br><br>
+
+Training includes:
+
+- Dataset preparation <br>
+- Model training using YOLOv8 <br>
+- Performance evaluation <br>
+- Model export for backend inference <br>
+
+**Running the Backend Locally**
+
+**Clone the repository**
+
+**bash**
+git clone https://github.com/YOUR_USERNAME/Smart-Traffic-AI.git
+cd Smart-Traffic-AI <br><br>
+**Create Virtual Environment** <br>
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate <br><br>
+**Install Dependencies**<br>
+pip install -r requirements.txt <br>
+Update paths if necessary. <br><br>
+**Create .env File** <br>
+Copy from example: <br>
+cp .env.example .env <br><br>
+**Run Server** <br>
+uvicorn app.main:app --reload <br><br>
+**Open Swagger documentation:** <br>
+http://127.0.0.1:8000/docs <br><br>
+**Key Features Implemented** <br>
+
+- Real-time vehicle detection <br>
+- Multi-object ID tracking <br>
+- Speed estimation algorithm <br>
+- Overspeed violation logging <br>
+- Thread-safe background processing <br>
+- OpenAPI documentation <br>
+- Environment-based configuration <br><br>
+**Configuration** <br>
+Environment variables are managed via .env. <br>
+Example configuration: <br>
+MODEL_PATH=models/best.pt <br>
+VIDEO_PATH=sample_video.mp4 <br>
+PIXELS_PER_METER=8 <br>
+FPS=30 <br>
+SPEED_LIMIT=60 <br><br>
+**Scalability Considerations** <br>
+
+This project is structured to support: <br>
+- Model versioning <br>
+- Dataset versioning <br>
+- External database integration (PostgreSQL) <br>
+- Redis caching <br>
+- JWT authentication <br>
+- Docker containerization <br>
+- Cloud deployment (AWS / Azure / GCP) <br><br>
+**Future Improvements** <br>
+
+- Persistent database storage <br>
+- Continuous model retraining pipeline <br>
+- ML experiment tracking (MLflow) <br>
+- Prometheus monitoring <br>
+- Distributed processing <br>
+
 **Author** <br>
 Aman Mishra <br>
 Aspiring ML Engineer | Data Analyst | AI Enthusiast <br>
